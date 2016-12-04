@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>ServilletaAutenticar</servlet-name>
+        <servlet-class>controller.ServletAutenticar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletBuscarPeliculas</servlet-name>
+        <servlet-class>controller.ServletBuscarPeliculas</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServilletaAutenticar</servlet-name>
+        <url-pattern>/autenticar.aspx</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBuscarPeliculas</servlet-name>
+        <url-pattern>/buscar-peliculas</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

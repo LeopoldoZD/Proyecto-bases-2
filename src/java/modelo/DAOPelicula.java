@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
@@ -34,29 +35,37 @@ public class DAOPelicula {
     
     public static  String buscarTodasPeliculas(){
         //primero nos conectamos a Oracle
-        String resultado="no hay nada";
-        try{
-   Connection con=     Conexion.conectarse();
-       Statement st=  con.createStatement();
-       //Con el statement realizamos los cueris
-         ResultSet res= st.executeQuery("select * from pelicula");
-       //Iterar ek resulset para ver los resultados de mi cueri
-         int contador=0;
-         ArrayList<Pelicula> peliculas=new ArrayList<Pelicula>();
-         while(res.next()){
-             Pelicula p=new Pelicula();
-                    p.setId(res.getInt(1));
-                    p.setTitulo(res.getString(2));
-                   p.setSinopsis(res.getString(3));
-                    peliculas.add(p);
-         }
+      String json="no tiene nada";
+      try{
+           //A. Hacer la conexion
+          Connection con=  Conexion.conectarse(); 
+           //B. Hacer un cueris 
+          Statement st= con.createStatement ();
+          
+          ResultSet res=st.executeQuery("select * from pelicula");
+          ArrayList<Pelicula> peliculas=new ArrayList<>();
+          //C. iterar el resultado y llenar el arraylist del select
+          while(res.next()){
+              Pelicula p=new Pelicula();
+              p.setId(res.getInt(1));
+              p.setTitulo(res.getString(2));
+              p.setSinopsis(res.getString(3));
+              peliculas.add(p);
+          }
+          //preparamos la informacion de sql para que salga
+          //a traves de http hacia el cliente(web) usando
+          //el formato de informacion JSON
+          ObjectMapper maper=new ObjectMapper(); 
+          json=maper.writeValueAsString(peliculas);//hace que un  arreglo pasan a ser de tipo JSON
+          
+          
+      }catch(Exception e){
          
-          resultado="encontramos "+peliculas.toString()+" registros";
-   
-            }catch(Exception e){
-            resultado=e.getMessage();
-        }
-        return resultado;
+       
+         
+          
+      }
+      return json;
     }
     
 

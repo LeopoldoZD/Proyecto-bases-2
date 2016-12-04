@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    
+        
+    </head>
+    
+    <body>
+        <h1>sistema Cinepolis</h1>
+        <button class="btn btn-primary">Comprar boleto</button>
+        <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+          <button>aqui un boton</button>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+          
+      </div>
+      <div role="tabpanel" class="tab-pane" id="messages">
+          
+      </div>
+      <div role="tabpanel" class="tab-pane" id="settings">
+          <div class="row">
+              <div class="col-md-4"><button class="btn btn-success"></button></div>
+  <div class="col-md-4">.col-md-1</div>
+  <div class="col-md-4">.col-md-1</div>
+  <div class="col-md-4">.col-md-1</div>
+
+</div>
+      </div>
+  </div>
+
+</div>
+        <script>$('#home').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+            $('#messages').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+$('#profile').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+$('#settings').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+        </script>
+    </body>
+</html>
